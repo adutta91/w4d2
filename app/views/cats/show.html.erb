@@ -1,0 +1,26 @@
+<h1>Cats</h1>
+
+
+<table>
+  <tr>
+    <th>Name &nbsp; &nbsp; &nbsp;</th>
+    <th>Birth Date</th>
+    <th>Color</th>
+    <th>Sex</th>
+    <th>Description</th>
+  </tr>
+  <% @cats.each do |cat| %>
+  <tr>
+    <td><%= cat.name %></td>
+    <td><%= cat.birth_date %></td>
+    <td><%= cat.color %></td>
+    <td><%= cat.sex %></td>
+    <td><%= cat.description %></td>
+  </tr>
+  <% end %> 
+</table>
+
+
+
+
+<%= link_to "Create new cat!", new_cat_url %>
