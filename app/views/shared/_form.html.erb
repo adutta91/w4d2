@@ -1,0 +1,50 @@
+
+<% if @cat.persisted? %>
+  <form action="/cats/<%=@cat[:id]%>" method="post">
+    <input type="hidden" name="_method" value="patch">
+<% else %>
+  <form action="/cats" method="post">
+<% end %>
+
+  <label for="cat_name">First name</label>
+  <input type="text" name="cat[name]" id="cat_name" value="<%=@cat[:name]%>">
+  <br>
+  <br>
+
+  <label for="cat_birth_date">Birth Date</label>
+  <input type="date" name="cat[birth_date]" id="cat_birth_date" value="<%=@cat[:birth_date]%>">
+  <br>
+  <br>
+
+  <label>Sex</label>
+  <div>
+    <% sex = @cat[:sex] %>
+    <input name="cat[sex]" id="sex_cat_m" value="m" type="radio"
+    <%= sex == "m" ? "checked" : "" %> >
+    <label for="cat_sex_m">Male</label>
+    <input name="cat[sex]" id="sex_cat_f" value="f" type="radio"
+    <%= sex == "f" ? "checked" : "" %> >
+    <label for="cat_sex_f">Female</label>
+  </div>
+  <br>
+
+  <label for="cat_description">Description</label>
+  <br>
+  <textarea name="cat[description]" id="cat_description"
+    cols=50 rows=5><%=@cat[:description]%></textarea>
+  <br>
+  <br>
+  <% color = @cat[:color] %>
+  <label for="cat_color">Color</label>
+  <select name="cat[color]">
+    <option value="calico" <%= color == "calico" ? "selected" : "" %>>Calico</option>
+    <option value="black"<%= color == "black" ? "selected" : "" %>>Black</option>
+    <option value="brown"<%= color == "brown" ? "selected" : "" %>>Brown</option>
+    <option value="white"<%= color == "white" ? "selected" : "" %>>White</option>
+    <option value="orange"<%= color == "orange" ? "selected" : "" %>>Orange</option>
+  </select>
+  <br>
+  <br>
+
+  <input type="submit" value="Submit!">
+</form>

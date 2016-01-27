@@ -1,0 +1,31 @@
+<h1><%= @cat.name %></h1>
+<table border="1" style="width:100%">
+  <tr>
+    <th>Name &nbsp; &nbsp; &nbsp;</th>
+    <th>Birth Date</th>
+    <th>Color</th>
+    <th>Sex</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><%= @cat.name %></td>
+    <td><%= @cat.birth_date %></td>
+    <td><%= @cat.color %></td>
+    <td><%= @cat.sex %></td>
+    <td><%= @cat.description %></td>
+  </tr>
+</table>
+<br>
+<br>
+<h4>Requests</h4>
+<ol type="1">
+  <% @cat.rental_requests.sort{|x,y| x.start_date <=> y.start_date}.each do |request| %>
+    <li>Start&nbsp;date:&nbsp;<%= request.start_date %>
+    &nbsp;End&nbsp;date:&nbsp;<%= request.end_date %>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Status:<%= request.status %>
+    <button type="button">Deny!!!</button></li>
+  <% end %>
+</ol>
+
+
+<%= link_to "Cats!!!!!", cats_url %>

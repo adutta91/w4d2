@@ -1,7 +1,7 @@
 <h1>Cats</h1>
 
 
-<table>
+<table border="5" style="width:100%">
   <tr>
     <th>Name &nbsp; &nbsp; &nbsp;</th>
     <th>Birth Date</th>
@@ -11,13 +11,15 @@
   </tr>
   <% @cats.each do |cat| %>
   <tr>
-    <td><%= cat.name %></td>
+    <td><%= link_to cat.name, cat_url(cat) %></td>
     <td><%= cat.birth_date %></td>
     <td><%= cat.color %></td>
     <td><%= cat.sex %></td>
     <td><%= cat.description %></td>
+    <td><%= link_to "Edit cat!", edit_cat_url(cat) %></td>
+
   </tr>
-  <% end %> 
+  <% end %>
 </table>
 
 
